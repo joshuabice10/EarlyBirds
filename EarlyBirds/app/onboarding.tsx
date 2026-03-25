@@ -6,7 +6,7 @@ export default function Onboarding() {
   const insets = useSafeAreaInsets();
   const router = useRouter();
   return (
-    <View style={{ paddingTop: insets.top }}>
+    <View style={[styles.page, { paddingTop: insets.top }]}>
       <Text>Onboarding page</Text>
       <Pressable style={styles.tempBackBtn} onPress={() => router.back()}>
         <Text>Back Button</Text>
@@ -16,9 +16,13 @@ export default function Onboarding() {
 }
 
 const styles = StyleSheet.create({
+  page: {
+    padding: "5%",
+  },
   tempBackBtn: {
     padding: 20,
     backgroundColor: "red",
     alignSelf: "flex-start",
+    borderRadius: 12,
   },
 });
