@@ -1,4 +1,8 @@
 import { Stack } from "expo-router";
+import React, { createContext, useContext } from 'react';
+import { Theme, theme } from './theme';
+
+const ThemeContext = createContext<Theme>(theme);
 
 export default function RootLayout() {
   return (
@@ -8,3 +12,13 @@ export default function RootLayout() {
     </Stack>
   );
 }
+
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeContext.Provider value={theme}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export const useTheme = () => useContext(ThemeContext);
