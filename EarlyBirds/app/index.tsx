@@ -10,6 +10,7 @@ export default function Index() {
   const { colors } = useTheme();
   const [isAsleep, setIsAsleep] = useState(false);
   const [btnColor, setBtnColor] = useState(colors.primary);
+  const [fontColor, setFontColor] = useState("white");
   const insets = useSafeAreaInsets();
 
   function buttonSwap() {
@@ -17,8 +18,10 @@ export default function Index() {
 
     if (isAsleep) {
       setBtnColor(colors.primary);
+      setFontColor("white");
     } else {
       setBtnColor(colors.secondary);
+      setFontColor("black");
     }
   }
 
@@ -32,7 +35,7 @@ export default function Index() {
       >
         <Text style={styles.heading}>Early Birds</Text>
         <Pressable
-          style={[styles.button2, { backgroundColor: colors.secondary }]}
+          style={[styles.onboardingBtn, { backgroundColor: colors.secondary }]}
           onPress={() => router.push("/onboarding")}
         >
           <Text>Go to Onboarding</Text>
@@ -42,10 +45,16 @@ export default function Index() {
         <Text>Edit app/index.tsx to edit this screen.</Text>
 
         <Pressable
-          style={[styles.button1, { backgroundColor: btnColor }]}
+          style={[styles.sleepWakeBtn, { backgroundColor: btnColor }]}
           onPress={() => buttonSwap()}
         >
-          {isAsleep ? <Text>To Sleep</Text> : <Text>Awake</Text>}
+          {isAsleep ? (
+            <Text style={[styles.subheading, { color: fontColor }]}>
+              To Sleep
+            </Text>
+          ) : (
+            <Text style={[styles.subheading, { color: fontColor }]}>Awake</Text>
+          )}
         </Pressable>
       </View>
     </View>
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 10,
   },
-  button1: {
+  sleepWakeBtn: {
     padding: 20,
     width: 200,
     height: 60,
@@ -76,7 +85,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
   },
-  button2: {
+  onboardingBtn: {
     padding: 20,
     width: 160,
     height: 60,
@@ -89,5 +98,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 25,
     fontFamily: theme.fonts.header,
+  },
+  subheading: {
+    fontSize: 18,
+    fontFamily: theme.fonts.subheader,
   },
 });

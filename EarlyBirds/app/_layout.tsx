@@ -19,10 +19,12 @@ export default function RootLayout() {
     Grandstander_400Regular,
   });
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" options={{ title: "Main" }} />
-      <Stack.Screen name="onboarding" options={{ title: "Onboarding" }} />
-    </Stack>
+    <ThemeProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" options={{ title: "Main" }} />
+        <Stack.Screen name="onboarding" options={{ title: "Onboarding" }} />
+      </Stack>
+    </ThemeProvider>
   );
 }
 
