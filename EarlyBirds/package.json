@@ -11,9 +11,9 @@
     "lint": "expo lint"
   },
   "dependencies": {
+    "@expo-google-fonts/balsamiq-sans": "^0.4.1",
+    "@expo-google-fonts/grandstander": "^0.4.1",
     "@expo/vector-icons": "^15.0.3",
-    "@fontsource/balsamiq-sans": "^5.2.8",
-    "@fontsource/grandstander": "^5.2.7",
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
